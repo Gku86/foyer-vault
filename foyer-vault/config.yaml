@@ -1,0 +1,19 @@
+name: "Foyer Vault"
+version: "1.0.0"
+slug: foyer_vault
+description: "Stockage chiffré des coffres Foyer (AES-GCM). Home Assistant ne peut pas lire le contenu."
+arch:
+  - amd64
+  - aarch64
+  - armv7
+startup: services
+boot: auto
+init: false
+ports:
+  8099/tcp: 8099
+ports_description:
+  8099/tcp: "API Foyer (LAN)"
+options:
+  secret: "changez-moi"
+schema:
+  secret: password
