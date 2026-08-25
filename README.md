@@ -1,16 +1,24 @@
-# Dépôt Home Assistant — Foyer Vault
+# HomeBudget — interface Home Assistant
 
-Dépôt d’application (ex-add-on) pour Home Assistant OS.
+Sert l’application HomeBudget. **Foyer Vault reste séparé** (coffre chiffré).
 
-## Ajouter dans HA (dépôt GitHub)
+## Installation (même dépôt que le vault)
 
-1. Créez un dépôt **public** sur GitHub (ex. `foyer-vault`).
-2. Déposez à la racine :
-   - `repository.yaml`
-   - le dossier `foyer-vault/` (config.yaml, Dockerfile, build.yaml, server.py)
-3. Dans Home Assistant : **Paramètres → Applications → ⋮ → Dépôts**
-4. Collez l’URL du dépôt, du type :
-   `https://github.com/VOTRE-COMPTE/foyer-vault`
-5. Installez **Foyer Vault**, définissez un secret, démarrez.
+Le dépôt GitHub `Gku86/foyer-vault` contient deux apps :
 
-Le serveur écoute sur le port **8099**. Dans Foyer : `http://IP-DU-HA:8099` + le secret.
+- `foyer-vault` — déjà installée
+- `homebudget` — celle-ci
+
+1. GitHub : déposer le dossier `homebudget/` à la racine du dépôt (à côté de `foyer-vault/`).
+2. HA → **Paramètres → Applications → ⋮ → Rechercher des mises à jour**.
+3. Installer **HomeBudget**, démarrer. Port **8100**.
+4. Tunnel Cloudflare (hostname **différent** du vault), ex. `https://budget.fchvtn.ovh` → `http://127.0.0.1:8100`.
+5. Ouvrir cette URL. La synchro continue d’utiliser `https://foyer.fchvtn.ovh`.
+
+## Mise à jour
+
+1. Remplacer le contenu de `homebudget/` (surtout `www/` et `config.yaml` — incrémenter `version`).
+2. Pousser sur GitHub.
+3. HA → Applications → HomeBudget → **Mettre à jour**.
+
+Ne désinstallez pas Foyer Vault.
