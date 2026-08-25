@@ -1,24 +1,35 @@
-# HomeBudget — interface Home Assistant
+# Dépôt Home Assistant — HomeBudget + Foyer Vault
 
-Sert l’application HomeBudget. **Foyer Vault reste séparé** (coffre chiffré).
+Deux applications, **indépendantes** :
 
-## Installation (même dépôt que le vault)
+| Dossier | Rôle | Port |
+|---|---|---|
+| `foyer-vault/` | Coffre chiffré (à garder) | 8099 |
+| `homebudget/` | Interface HomeBudget | 8100 |
 
-Le dépôt GitHub `Gku86/foyer-vault` contient deux apps :
+## GitHub
 
-- `foyer-vault` — déjà installée
-- `homebudget` — celle-ci
+Racine du dépôt :
 
-1. GitHub : déposer le dossier `homebudget/` à la racine du dépôt (à côté de `foyer-vault/`).
-2. HA → **Paramètres → Applications → ⋮ → Rechercher des mises à jour**.
-3. Installer **HomeBudget**, démarrer. Port **8100**.
-4. Tunnel Cloudflare (hostname **différent** du vault), ex. `https://budget.fchvtn.ovh` → `http://127.0.0.1:8100`.
-5. Ouvrir cette URL. La synchro continue d’utiliser `https://foyer.fchvtn.ovh`.
+```text
+repository.yaml
+foyer-vault/
+homebudget/
+```
 
-## Mise à jour
+Dans HA : **Paramètres → Applications → ⋮ → Dépôts** →
+`https://github.com/Gku86/foyer-vault`
 
-1. Remplacer le contenu de `homebudget/` (surtout `www/` et `config.yaml` — incrémenter `version`).
-2. Pousser sur GitHub.
-3. HA → Applications → HomeBudget → **Mettre à jour**.
+## Cloudflare
 
-Ne désinstallez pas Foyer Vault.
+Ne pas mélanger les hostnames :
+
+| Hostname | Service |
+|---|---|
+| `foyer.fchvtn.ovh` | `http://127.0.0.1:8099` (vault, déjà en place) |
+| un autre, ex. `budget.fchvtn.ovh` | `http://127.0.0.1:8100` (interface) |
+
+## Mises à jour
+
+Incrémenter `version` dans `homebudget/config.yaml`, pousser, puis HA → **Mettre à jour**.
+Foyer Vault n’est pas touché.
