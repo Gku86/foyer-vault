@@ -198,7 +198,13 @@ class Handler(BaseHTTPRequestHandler):
                 return
             try:
                 vapid = ensure_vapid()
-                self._json(200, {"publicKey": vapid["public"], "subscribers": len(load_subs())})
+                counts = {}
+                for item in load_subs():
+                    if not isinstance(item, dict):
+                        continue
+                    mid = str(item.get("memberId") or "")
+                    counts[mid] = int(counts.get(mid) or 0) + 1
+                self._json(200, {"publicKey": vapid["public"], "subscribers": len(load_subs()), "byMember": counts})
             except Exception as exc:
                 self._json(500, {"error": str(exc)})
             return

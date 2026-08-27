@@ -1,5 +1,5 @@
 name: "Foyer Vault"
-version: "1.2.0"
+version: "1.2.1"
 slug: foyer_vault
 description: "Stockage chiffré des coffres Foyer (AES-GCM) et notifications Web Push du foyer. Home Assistant ne peut pas lire le contenu."
 url: "https://github.com/Gku86/foyer-vault"
