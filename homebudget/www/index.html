@@ -3,29 +3,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<script>
-(function () {
-  var b = "{{BASE}}";
-  if (!b) {
-    var m = location.pathname.match(/^(\/api\/hassio_ingress\/[^/]+)/);
-    if (m) b = m[1];
-  }
-  window.__HB_BASE__ = b || "";
-  window.__HB_STATIC__ = true;
-})();
-</script>
-<link rel="manifest" href="./manifest.webmanifest"/>
-<link rel="apple-touch-icon" href="./icon-180.png"/>
-<link rel="stylesheet" href="./assets/styles-OnXKRqqo.css"/>
-<title>HomeBudget</title>
-<meta name="description" content="Tableau de bord des revenus et dépenses du foyer."/>
+<base href="./">
+<title>HomeBudget 1.8.9</title>
 <meta name="theme-color" content="#5d87ff"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-title" content="HomeBudget"/>
-<link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
+<link rel="stylesheet" href="assets/styles-OnXKRqqo.css"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="apple-touch-icon" href="icon-180.png"/>
 </head>
-<body class="antialiased">
-<div id="app"><p style="font-family:sans-serif;padding:24px;color:#64748b">Chargement…</p></div>
-<script type="module" src="./assets/index-fOCkqWWD.js"></script>
+<body style="margin:0;background:#f6f9fc;color:#2a3547;font-family:sans-serif">
+<div id="app"><p style="padding:24px">HomeBudget 1.8.9 — chargement…</p></div>
+<script src="boot.js"></script>
+<script type="module" src="assets/index-fOCkqWWD.js"></script>
 </body>
 </html>
