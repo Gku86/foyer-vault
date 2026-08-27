@@ -1,1 +1,0 @@
-{"name": "HomeBudget", "short_name": "HomeBudget", "start_url": "./", "scope": "./", "display": "standalone", "background_color": "#f4f6fb", "theme_color": "#5d87ff", "icons": [{"src": "icon-180.png", "sizes": "180x180", "type": "image/png", "purpose": "any maskable"}]}
