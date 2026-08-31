@@ -1,5 +1,5 @@
 name: "HomeBudget"
-version: "1.8.24"
+version: "1.8.25"
 slug: homebudget
 description: "Interface HomeBudget (finances du foyer). Les données restent dans Foyer Vault."
 url: "https://github.com/Gku86/foyer-vault"
